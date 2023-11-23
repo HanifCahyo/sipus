@@ -43,3 +43,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('user', UserController::class);
     });
 });
+
+// web.php (Routes)
+
+Route::get('user/delete/{id}', [UserController::class, 'destroy'])->name('deleteUser');
+
+// Tambahkan route untuk menampilkan form edit
+Route::get('user/edit/{id}', [UserController::class, 'edit'])->name('editUser');
+
+// Ubah route untuk menangani form submission (update)
+Route::put('user/update/{id}', [UserController::class, 'update'])->name('updateUser');

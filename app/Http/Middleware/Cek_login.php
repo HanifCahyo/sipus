@@ -23,6 +23,9 @@ class Cek_login
     //    simpan data user pada variabel $user
        $user = Auth::user();
 
+       // Debugging statements
+    // dd($user->level, $roles);
+
     //    jika user memiliki level sesuai pada kolom pada lanjutkan request
        if($user->level == $roles){
          return $next($request);
