@@ -53,3 +53,6 @@ Route::get('user/edit/{id}', [UserController::class, 'edit'])->name('editUser');
 
 // Ubah route untuk menangani form submission (update)
 Route::put('user/update/{id}', [UserController::class, 'update'])->name('updateUser');
+
+Route::post('/storeUser', [UserController::class, 'storeUser'])->name('storeUser');
+Route::get('/user/create', [UserController::class, 'createUser'])->name('createUser');

@@ -109,7 +109,9 @@ class AuthController extends Controller
                 // jika berhasil isi level & enkripsi username dan password dengan kunci udinus
                     $request['level']='user';
                     $request['username'] = $this->encryptMyszkowskiTranspositionCipher($request['username'], 'udinus');
+                    $request['name'] = $this->encryptMyszkowskiTranspositionCipher($request['name'], 'udinus');
                     $request['password'] = $this->encryptMyszkowskiTranspositionCipher($request['password'], 'udinus');
+                    $request['email'] = $this->encryptMyszkowskiTranspositionCipher($request['email'], 'udinus');
                 // masukkkan semua data pada request ke table user
                     User::create($request->all());
 
@@ -136,7 +138,7 @@ class AuthController extends Controller
             $numRows = ceil($textLength / $keyLength);
         
             // Buat array untuk menyimpan teks yang diacak
-            $scrambledText = array_fill(0, $numRows, array_fill(0, $keyLength, '@'));
+            $scrambledText = array_fill(0, $numRows, array_fill(0, $keyLength, '/'));
         
             // Isi array dengan teks
             for ($i = 0; $i < $textLength; $i++) {
@@ -170,7 +172,7 @@ class AuthController extends Controller
             $numRows = ceil($textLength / $keyLength);
         
             // Buat array untuk menyimpan teks yang diacak
-            $scrambledText = array_fill(0, $numRows, array_fill(0, $keyLength, '@'));
+            $scrambledText = array_fill(0, $numRows, array_fill(0, $keyLength, '/'));
         
             // Isi array dengan teks terenkripsi
             $index = 0;
@@ -191,7 +193,7 @@ class AuthController extends Controller
             sort($order);
         
             // Buat array untuk menyimpan teks asli
-            $text = array_fill(0, $numRows, array_fill(0, $keyLength, '@'));
+            $text = array_fill(0, $numRows, array_fill(0, $keyLength, '/'));
         
             // Susun ulang kolom berdasarkan urutan asli
             for ($i = 0; $i < $keyLength; $i++) {
@@ -210,7 +212,7 @@ class AuthController extends Controller
             }
         
             // Hapus karakter dummy dan ganti simbol # dengan spasi
-            $decryptedText = str_replace('@', '', $decryptedText);
+            $decryptedText = str_replace('/', '', $decryptedText);
             $decryptedText = str_replace('#', ' ', $decryptedText);
         
             return $decryptedText;

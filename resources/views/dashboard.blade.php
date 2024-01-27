@@ -48,6 +48,11 @@
                             </tbody>
                         </table>
                     </div>
+                     <!-- Button to navigate to the page for adding a new user -->
+                     <div class="mt-4">
+   <a href="{{ route('createUser') }}" class="btn btn-success">Add New User</a>
+</div>
+
                     <!-- Akhir Tabel Data -->
                 </div>
             </main>
