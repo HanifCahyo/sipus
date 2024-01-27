@@ -23,6 +23,21 @@
 
         <script src="{{ asset('js/script.js') }}"></script>
   
-    
+        <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var passwordInput = document.getElementById('password');
+        var showPasswordBtn = document.getElementById('showPasswordBtn');
+
+        showPasswordBtn.addEventListener('click', function () {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                showPasswordBtn.textContent = 'Hide';
+            } else {
+                passwordInput.type = 'password';
+                showPasswordBtn.textContent = 'Show';
+            }
+        });
+    });
+</script>
     </body>
 </html>

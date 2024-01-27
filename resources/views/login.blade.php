@@ -78,10 +78,9 @@
                                 </form>
                             </div>
                             <div class="card-footer text-center">
-                                <div class="small">
-                                    {{-- <a href="{{route('register')}}">Belum Punya Akun? Daftar!</a> --}}
-                                </div>
+                                <div class="small"><a href="{{route('register')}}">Belum Punya Akun? Register!</a></div>
                             </div>
+                           
                         </div>
                     </div>
                 </div>
